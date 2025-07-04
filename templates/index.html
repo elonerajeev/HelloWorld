@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloWorld - Production Ready Flask App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #4ecdc4;
+        }
+
+        .info-card h3 {
+            margin-bottom: 0.5rem;
+            color: #ff6b6b;
+        }
+
+        .endpoints {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .endpoint {
+            display: flex;
+            align-items: center;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        .endpoint .method {
+            background: #4ecdc4;
+            color: #333;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-right: 1rem;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .endpoint .path {
+            color: #ff6b6b;
+            font-family: monospace;
+            margin-right: 1rem;
+        }
+
+        .endpoint .description {
+            opacity: 0.8;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4ecdc4;
+        }
+
+        .stat .label {
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .github-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .github-link i {
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <i class="fas fa-rocket"></i>
+        </div>
+        
+        <h1>Hello, World!</h1>
+        <p class="subtitle">Production-Ready Flask Application with CI/CD Pipeline</p>
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-code"></i>
+                <h3>Flask Framework</h3>
+                <p>Built with Python Flask, the lightweight WSGI web application framework</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Production Ready</h3>
+                <p>Docker containerization, health checks, and security scanning included</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-cogs"></i>
+                <h3>CI/CD Pipeline</h3>
+                <p>Automated testing, building, and deployment with GitHub Actions</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Monitoring</h3>
+                <p>Health endpoints and comprehensive logging for production monitoring</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="number">{{ data.version }}</div>
+                <div class="label">Version</div>
+            </div>
+            <div class="stat">
+                <div class="number">{{ data.environment }}</div>
+                <div class="label">Environment</div>
+            </div>
+            <div class="stat">
+                <div class="number">{{ data.uptime }}</div>
+                <div class="label">Uptime</div>
+            </div>
+        </div>
+
+        <div class="endpoints">
+            <h3 style="text-align: center; margin-bottom: 1rem; color: #4ecdc4;">
+                <i class="fas fa-link"></i> Available Endpoints
+            </h3>
+            
+            <div class="endpoint">
+                <span class="method">GET</span>
+                <span class="path">/</span>
+                <span class="description">This beautiful homepage</span>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method">GET</span>
+                <span class="path">/api/hello</span>
+                <span class="description">JSON API response</span>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method">GET</span>
+                <span class="path">/health</span>
+                <span class="description">Health check endpoint</span>
+            </div>
+            
+            <div class="endpoint">
+                <span class="method">GET</span>
+                <span class="path">/api/info</span>
+                <span class="description">Application information</span>
+            </div>
+        </div>
+
+        <a href="https://github.com/elonerajeev/HelloWorld" class="github-link" target="_blank">
+            <i class="fab fa-github"></i>
+            View on GitHub
+        </a>
+
+        <div class="footer">
+            <p>🚀 Deployed at {{ data.timestamp }}</p>
+            <p>Built with ❤️ using Flask, Docker, and GitHub Actions</p>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate cards on load
+            const cards = document.querySelectorAll('.info-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

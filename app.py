@@ -1,12 +1,30 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import os
 from datetime import datetime
+import time
 
 app = Flask(__name__)
+start_time = time.time()
 
 
 @app.route("/")
 def hello_world():
+    uptime_seconds = int(time.time() - start_time)
+    uptime_hours = uptime_seconds // 3600
+    uptime_display = f"{uptime_hours}h" if uptime_hours > 0 else f"{uptime_seconds}s"
+
+    data = {
+        "message": "Hello, World!",
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC"),
+        "version": "1.0.0",
+        "environment": os.getenv("FLASK_ENV", "production").title(),
+        "uptime": uptime_display,
+    }
+    return render_template("index.html", data=data)
+
+
+@app.route("/api/hello")
+def api_hello():
     return jsonify(
         {
             "message": "Hello, World!",

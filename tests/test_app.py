@@ -11,8 +11,16 @@ def client():
 
 
 def test_hello_world(client):
-    """Test the main hello world endpoint"""
+    """Test the main hello world endpoint (HTML page)"""
     response = client.get("/")
+    assert response.status_code == 200
+    assert b"Hello, World!" in response.data
+    assert b"Production-Ready Flask Application" in response.data
+
+
+def test_api_hello(client):
+    """Test the API hello endpoint (JSON)"""
+    response = client.get("/api/hello")
     assert response.status_code == 200
 
     data = json.loads(response.data)
